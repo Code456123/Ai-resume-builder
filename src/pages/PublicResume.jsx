@@ -19,15 +19,14 @@ const PublicResume = () => {
   const fetchPublicResume = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`https://ai-resume-builder-kbai.onrender.com/api/resume/${id}`);
+      const response = await fetch(`https://ai-resume-builder-kbai.onrender.com/api/resume/public/${id}`);
       const result = await response.json();
 
       if (result.success) {
-        if (result.data.isPublic) {
-          setResume(result.data);
-        } else {
-          setError('private');
-        }
+        setResume(result.data);
+      } else {
+        setError('private');
+      }
       } else {
         setError('notfound');
       }

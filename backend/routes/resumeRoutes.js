@@ -11,6 +11,12 @@ const {
 } = require('../controllers/resumeController');
 const authMiddleware = require('../middleware/authMiddleware');
 
+// Public Routes (no authentication required)
+// IMPORTANT: Must be defined BEFORE /:id routes to avoid conflicts
+
+// GET /api/resume/public/:id - Get public resume by ID
+router.get('/public/:id', getPublicResume);
+
 // Protected Routes (require authentication)
 
 // POST /api/resume - Create a new resume
@@ -18,6 +24,9 @@ router.post('/', authMiddleware, createResume);
 
 // GET /api/resume - Get all resumes for logged-in user
 router.get('/', authMiddleware, getUserResumes);
+
+// PATCH /api/resume/:id/toggle-public - Toggle isPublic status
+router.patch('/:id/toggle-public', authMiddleware, togglePublicStatus);
 
 // GET /api/resume/:id - Get resume by ID
 router.get('/:id', authMiddleware, getResumeById);
@@ -27,13 +36,5 @@ router.put('/:id', authMiddleware, updateResume);
 
 // DELETE /api/resume/:id - Delete resume
 router.delete('/:id', authMiddleware, deleteResume);
-
-// PATCH /api/resume/:id/toggle-public - Toggle isPublic status
-router.patch('/:id/toggle-public', authMiddleware, togglePublicStatus);
-
-// Public Routes (no authentication required)
-
-// GET /api/resume/public/:id - Get public resume by ID
-router.get('/public/:id', getPublicResume);
 
 module.exports = router;
