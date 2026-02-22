@@ -25,10 +25,14 @@ const PublicResume = () => {
       if (result.success) {
         setResume(result.data);
       } else {
-        setError('private');
-      }
-      } else {
-        setError('notfound');
+        // Check response status
+        if (response.status === 401) {
+          setError('private');
+        } else if (response.status === 404) {
+          setError('notfound');
+        } else {
+          setError('server');
+        }
       }
     } catch (error) {
       console.error('Error fetching resume:', error);
