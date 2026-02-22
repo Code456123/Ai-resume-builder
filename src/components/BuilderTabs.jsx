@@ -99,7 +99,7 @@ const BuilderTabs = ({ resumeData, updateResumeData }) => {
     setIsGeneratingAI(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/ai/generate-summary', {
+      const response = await fetch('https://ai-resume-builder-kbai.onrender.com/api/ai/generate-summary', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const BuilderTabs = ({ resumeData, updateResumeData }) => {
     setIsGeneratingAI(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/ai/generate-description', {
+      const response = await fetch('https://ai-resume-builder-kbai.onrender.com/api/ai/generate-description', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

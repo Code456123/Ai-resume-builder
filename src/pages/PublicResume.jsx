@@ -19,7 +19,7 @@ const PublicResume = () => {
   const fetchPublicResume = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`http://localhost:5000/api/resume/${id}`);
+      const response = await fetch(`https://ai-resume-builder-kbai.onrender.com/api/resume/${id}`);
       const result = await response.json();
 
       if (result.success) {

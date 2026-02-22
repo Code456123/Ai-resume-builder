@@ -87,7 +87,7 @@ const Builder = () => {
     try {
       setIsLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/resume/${resumeId}`, {
+      const response = await fetch(`https://ai-resume-builder-kbai.onrender.com/api/resume/${resumeId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -134,7 +134,7 @@ const Builder = () => {
       const token = localStorage.getItem('token');
       
       // Save to MongoDB via backend API
-      const response = await fetch('http://localhost:5000/api/resume', {
+      const response = await fetch('https://ai-resume-builder-kbai.onrender.com/api/resume', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

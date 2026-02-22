@@ -16,7 +16,7 @@ const ShareModal = ({ isOpen, onClose, resumeId }) => {
   const fetchResumeStatus = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/resume/${resumeId}`, {
+      const response = await fetch(`https://ai-resume-builder-kbai.onrender.com/api/resume/${resumeId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -34,7 +34,7 @@ const ShareModal = ({ isOpen, onClose, resumeId }) => {
     try {
       setIsLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/resume/${resumeId}/toggle-public`, {
+      const response = await fetch(`https://ai-resume-builder-kbai.onrender.com/api/resume/${resumeId}/toggle-public`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`

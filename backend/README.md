@@ -52,7 +52,7 @@ npm run dev
 npm start
 ```
 
-Server will run on `http://localhost:5000`
+Server will run on `https://ai-resume-builder-kbai.onrender.com`
 
 ## 📡 API Endpoints
 
