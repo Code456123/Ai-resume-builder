@@ -1,19 +1,19 @@
+require("dotenv").config();
+
+console.log("ENV CHECK:", process.env.MONGO_URI);
+
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const resumeRoutes = require('./routes/resumeRoutes');
 const authRoutes = require('./routes/authRoutes');
 const aiRoutes = require('./routes/aiRoutes');
 
-// Load environment variables
-dotenv.config();
-
 // Initialize Express app
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => {
     console.log("❌ MongoDB connection error:", err);
